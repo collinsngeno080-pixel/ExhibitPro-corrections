@@ -635,17 +635,20 @@ h1 br, h2 br {
 .page-hero h1 {
   font-size: clamp(2rem, 5.5vw, 4rem);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.05;
   letter-spacing: 0;
   color: #132638;
   margin-bottom: 1.25rem;
 }
 
 .page-hero p {
-  font-size: clamp(1rem, 2.5vw, 2rem);
+  font-size: clamp(1rem, 2vw, 1.375rem);
   font-weight: 500;
   color: #000000;
-  line-height: 1.2;
+  line-height: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 /* Step sections — alternating layout */
@@ -715,6 +718,23 @@ h1 br, h2 br {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: opacity 0.18s;
+}
+
+.step-video[data-video-id] {
+  cursor: pointer;
+}
+
+.step-video[data-video-id]:hover img {
+  opacity: 0.88;
+}
+
+.step-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 .step-video .play-icon {
@@ -736,19 +756,19 @@ h1 br, h2 br {
 }
 
 .page-cta h2 {
-  font-size: clamp(2rem, 4vw, 3.125rem);
+  font-size: clamp(1.25rem, 3vw, 2rem);
   font-weight: 700;
   letter-spacing: 0;
-  line-height: 1.1;
+  line-height: 1.375;
   color: #000000;
   margin-bottom: 1rem;
 }
 
 .page-cta p {
-  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
   font-weight: 500;
   letter-spacing: 0;
-  line-height: 1.1;
+  line-height: 1.375;
   color: #000000;
   margin-bottom: 2.25rem;
 }
@@ -760,21 +780,23 @@ h1 br, h2 br {
   }
 
   .page-hero h1 {
-    font-size: 4rem;       /* exactly 64px */
-    line-height: 77px;     /* exactly per spec */
+    font-size: 4rem;        /* exactly 64px */
+    line-height: 63px;      /* exactly per spec */
   }
 
   .page-hero p {
-    font-size: 2rem;       /* exactly 32px */
-    white-space: nowrap;
+    font-size: 1.375rem;    /* exactly 22px */
+    line-height: 1;
   }
 
   .page-cta h2 {
-    font-size: 3.125rem;   /* exactly 50px */
+    font-size: 2rem;        /* exactly 32px */
+    line-height: 44px;      /* exactly per spec */
   }
 
   .page-cta p {
-    font-size: 2rem;       /* exactly 32px */
+    font-size: 1.5rem;      /* exactly 24px */
+    line-height: 57px;      /* exactly per spec */
   }
 
   .step-inner {
@@ -865,40 +887,10 @@ h1 br, h2 br {
   -webkit-backface-visibility: hidden;
 }
 
-/* Card front — placeholder gradients, replace with real photos */
+/* Card front — bordered grey cards */
 .card-front {
-  background-size: cover;
-  background-position: center;
-}
-
-.card-front--1 {
-  background-image: linear-gradient(140deg, #3d2a1a 0%, #2c1e14 55%, #160f08 100%);
-}
-
-.card-front--2 {
-  background-image: linear-gradient(140deg, #162536 0%, #0e1e2c 55%, #070f16 100%);
-}
-
-.card-front--3 {
-  background-image: linear-gradient(140deg, #1f2a38 0%, #171d27 55%, #0b0f15 100%);
-}
-
-.card-front--4 {
-  background-image: linear-gradient(140deg, #252530 0%, #1a1a1e 55%, #0c0c10 100%);
-}
-
-.card-front--5 {
-  background-image: linear-gradient(140deg, #132234 0%, #0d1826 55%, #060c13 100%);
-}
-
-.card-front--6 {
-  background-image: linear-gradient(140deg, #162d23 0%, #0f1f18 55%, #060f0c 100%);
-}
-
-.card-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(26, 43, 60, 0.68);
+  background: var(--light-bg);
+  border: 1px solid var(--border);
 }
 
 .card-front-body {
@@ -926,7 +918,7 @@ h1 br, h2 br {
 }
 
 .card-front-name {
-  color: var(--white);
+  color: var(--navy);
   font-size: 0.975rem;
   font-weight: 700;
   letter-spacing: -0.01em;

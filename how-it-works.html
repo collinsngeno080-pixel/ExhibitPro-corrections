@@ -17,21 +17,21 @@
         <img src="images/ExhibitPro logo.png" alt="ExhibitPro" />
       </a>
       <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
         <a class="nav-active" href="#">How It Works</a>
         <a href="features.html">Features</a>
-
         <a href="#">Contact</a>
       </nav>
       <div class="header-actions">
         <a class="btn btn-primary" href="index.html#try">Try ExhibitPro</a>
         <div class="social-icons">
-          <a href="#" class="social-icon" aria-label="Facebook">
+          <a href="https://web.facebook.com/profile.php?id=61587514605022" class="social-icon" aria-label="Facebook">
             <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>
-          <a href="#" class="social-icon" aria-label="Instagram">
+          <a href="https://www.instagram.com/collegeproducetools" class="social-icon" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="3"/></svg>
           </a>
-          <a href="#" class="social-icon" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/company/112228917/" class="social-icon" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
         </div>
@@ -58,7 +58,7 @@
           <p class="step-body">Drag and drop your PDF or DOCX files into the workspace. You can select multiple files at once &#8212; pleadings, exhibits, or combined sets. ExhibitPro handles them all in one go.</p>
         </div>
         <div class="step-media">
-          <div class="step-video">
+          <div class="step-video" data-video-id="jJBlb7wXCFI">
             <img src="images/Sellect your files thumbnail 1.png" alt="Watch how to select your files" />
           </div>
         </div>
@@ -74,7 +74,7 @@
           <p class="step-body">No tagging. No highlighting. No manual work. ExhibitPro scans your documents, detects every exhibit identifier and heading, and builds a perfectly aligned set automatically. What used to take hours takes minutes.</p>
         </div>
         <div class="step-media">
-          <div class="step-video">
+          <div class="step-video" data-video-id="n3mQ2ey5q_U">
             <img src="images/Extract automatically thumbnail.png" alt="Watch how to extract automatically" />
           </div>
         </div>
@@ -90,7 +90,7 @@
           <p class="step-body">Review your labels and tabs before printing. Remove extras, adjust formatting, fine-tune spacing on the right panel. Most of the time you won&#8217;t need to touch a thing.</p>
         </div>
         <div class="step-media">
-          <div class="step-video">
+          <div class="step-video" data-video-id="OW_8Z6uNk0E">
             <img src="images/How topreview thumbnail 1.png" alt="Watch how to review and customize" />
           </div>
         </div>
@@ -106,7 +106,7 @@
           <p class="step-body">See exactly how your output will look before it hits the printer. Confirm alignment, select your preferred exhibit base sheet, and print. Print-ready in one click.</p>
         </div>
         <div class="step-media">
-          <div class="step-video">
+          <div class="step-video" data-video-id="tdF9hT-4mF0">
             <img src="images/How to generate and print thumbnail 1.png" alt="Watch how to print your labels and tabs" />
           </div>
         </div>
@@ -135,6 +135,53 @@
       <p class="footer-copy">&#169; 2026 ExhibitPro. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    var ytPlayers = {};
+    var ytActive  = null;
+
+    window.onYouTubeIframeAPIReady = function() {
+      document.querySelectorAll('.step-video[data-video-id]').forEach(function(el) {
+        el.addEventListener('click', function() {
+          var id = this.dataset.videoId;
+          if (ytActive && ytActive !== id) restoreThumbnail(ytActive);
+          if (ytActive === id) return;
+          playStep(this, id);
+        });
+      });
+    };
+
+    function playStep(container, id) {
+      container.querySelector('img').style.display = 'none';
+      var div = document.createElement('div');
+      container.appendChild(div);
+      ytActive = id;
+      ytPlayers[id] = new YT.Player(div, {
+        width: '100%', height: '100%',
+        videoId: id,
+        playerVars: { autoplay: 1, rel: 0, modestbranding: 1, playsinline: 1 },
+        events: {
+          onStateChange: function(e) {
+            if (e.data === YT.PlayerState.ENDED) restoreThumbnail(id);
+          }
+        }
+      });
+    }
+
+    function restoreThumbnail(id) {
+      var c = document.querySelector('.step-video[data-video-id="' + id + '"]');
+      if (!c) return;
+      if (ytPlayers[id]) { try { ytPlayers[id].destroy(); } catch(e) {} delete ytPlayers[id]; }
+      var leftover = c.querySelector('iframe, div:not([data-video-id])');
+      if (leftover) leftover.remove();
+      c.querySelector('img').style.display = '';
+      if (ytActive === id) ytActive = null;
+    }
+
+    var s = document.createElement('script');
+    s.src = 'https://www.youtube.com/iframe_api';
+    document.head.appendChild(s);
+  </script>
 
 </body>
 </html>
