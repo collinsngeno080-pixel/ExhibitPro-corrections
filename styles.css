@@ -2,15 +2,15 @@
    TOKENS
    ===================== */
 :root {
-  --navy:        #1a2b3c;
-  --orange:      #f05a28;
-  --orange-dark: #d4481d;
+  --navy:        #132638;
+  --orange:      #f35a05;
+  --orange-dark: #d44e04;
   --muted:       #687d92;
   --light-bg:    #f5f5f3;
   --border:      #e3e6ea;
   --white:       #ffffff;
 
-  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --max-w: 1080px;
   --header-h: 62px;
   --radius: 6px;
@@ -70,7 +70,7 @@ a {
   font-size: 0.9rem;
   font-weight: 600;
   padding: 0.625rem 1.25rem;
-  border-radius: var(--radius);
+  border-radius: 100px;
   border: 2px solid transparent;
   cursor: pointer;
   white-space: nowrap;
@@ -186,11 +186,16 @@ a {
   display: none;
 }
 
+/* Hide heading <br> on mobile — let text wrap naturally */
+h1 br, h2 br {
+  display: none;
+}
+
 /* =====================
    HERO
    ===================== */
 .hero {
-  padding: 5.5rem 0 5rem;
+  padding: 4rem 0 6.5rem;
   text-align: center;
 }
 
@@ -202,19 +207,21 @@ a {
 
 .eyebrow {
   display: block;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
   color: var(--orange);
   margin-bottom: 1.375rem;
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 6vw, 4.75rem);
-  font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -0.04em;
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0;
   color: var(--navy);
   margin-bottom: 1.375rem;
 }
@@ -224,30 +231,25 @@ a {
   color: var(--muted);
   max-width: 520px;
   line-height: 1.7;
-  margin-bottom: 2.25rem;
+  margin: 0 auto 2.25rem;
 }
 
 .trust-line {
   margin-top: 1.25rem;
-  font-size: 0.78rem;
+  font-size: 1.375rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
   color: var(--muted);
 }
 
 /* =====================
-   CREDIBILITY STRIP
+   SECTION SEPARATOR
    ===================== */
-.credibility-strip {
-  background: var(--light-bg);
+.section-sep {
+  border: none;
   border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 1.75rem 0;
-  text-align: center;
-}
-
-.credibility-strip p {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--muted);
+  margin: 0;
 }
 
 /* =====================
@@ -259,9 +261,10 @@ a {
 }
 
 .video-section h2 {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-size: 2.375rem;  /* 38px */
   font-weight: 700;
-  letter-spacing: -0.025em;
+  line-height: 57px;
+  letter-spacing: 0;
   color: var(--navy);
   max-width: 30ch;
   margin: 0 auto 2.75rem;
@@ -329,24 +332,110 @@ a {
 
 .steps-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.5rem;
-  max-width: 900px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 860px;
   margin: 0 auto;
-  text-align: left;
 }
 
-.step-name {
-  font-size: clamp(1.4rem, 2.5vw, 1.75rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: var(--navy);
-  margin-bottom: 0.5rem;
+.step-flip-card {
+  height: 240px;
+  perspective: 1200px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.18s ease;
 }
 
-.step-desc {
-  font-size: 0.95rem;
-  color: var(--muted);
+.step-flip-card:hover {
+  transform: translateY(-4px);
+}
+
+.step-flip-card.is-flipped:hover {
+  transform: none;
+}
+
+.step-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.step-flip-card.is-flipped .step-card-inner {
+  transform: rotateY(180deg);
+}
+
+.step-card-front,
+.step-card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.step-card-front {
+  background: var(--white);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  text-align: center;
+}
+
+.step-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-card-icon svg {
+  width: 48px;
+  height: 48px;
+  stroke: var(--orange);
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.step-card-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--orange);
+  letter-spacing: 0;
+}
+
+.step-card-back {
+  background: var(--orange);
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-card-back-body {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.step-card-back-label {
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.step-card-back-desc {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.875rem;
   line-height: 1.7;
 }
 
@@ -359,12 +448,22 @@ a {
 }
 
 .closing-cta h2 {
-  font-size: clamp(2.25rem, 5.5vw, 4.5rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.07;
-  color: var(--navy);
+  font-weight: 700;
+  letter-spacing: 0;
+  color: #000000;
   margin-bottom: 1.375rem;
+}
+
+.cta-line1 {
+  display: block;
+  font-size: 2rem;    /* 32px */
+  line-height: 44px;
+}
+
+.cta-line2 {
+  display: block;
+  font-size: 2.5rem;  /* 40px */
+  line-height: 44px;
 }
 
 .closing-cta .hero-sub {
@@ -395,44 +494,58 @@ a {
 }
 
 .footer-tagline {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: #ffffff;
 }
 
 .footer-links {
   display: flex;
-  gap: 1.5rem;
+  align-items: center;
+  gap: 0.625rem;
   margin-top: 0.375rem;
 }
 
 .footer-links a {
-  font-size: 0.775rem;
-  color: rgba(255, 255, 255, 0.4);
-  transition: color 0.15s;
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: #ffffff;
+  transition: opacity 0.15s;
 }
 
 .footer-links a:hover {
-  color: rgba(255, 255, 255, 0.8);
+  opacity: 0.75;
+}
+
+.footer-sep {
+  font-size: 1.125rem;
+  font-weight: 200;
+  color: #ffffff;
 }
 
 .footer-copy {
-  font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.22);
+  font-size: 0.875rem;
+  font-weight: 300;
+  letter-spacing: 0;
+  color: #ffffff;
   margin-top: 0.25rem;
 }
 
 /* =====================
    RESPONSIVE — 680px+
    ===================== */
+@media (max-width: 540px) {
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (min-width: 680px) {
   .btn-group {
     flex-direction: row;
     justify-content: center;
-  }
-
-  .steps-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
   }
 }
 
@@ -449,7 +562,16 @@ a {
   }
 
   .hero {
-    padding: 9rem 0 7.5rem;
+    padding: 7.5rem 0 9rem;
+  }
+
+  .hero h1 {
+    font-size: 4rem;    /* exactly 64px */
+    line-height: 63px;  /* exactly per spec */
+  }
+
+  h1 br, h2 br {
+    display: block;
   }
 }
 
@@ -462,6 +584,38 @@ a {
 }
 
 /* =====================
+   SOCIAL ICONS
+   ===================== */
+.social-icons {
+  display: none;
+  align-items: center;
+  gap: 0.875rem;
+  margin-left: 0.25rem;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  color: var(--orange);
+  transition: color 0.15s;
+}
+
+.social-icon:hover {
+  color: var(--orange-dark);
+}
+
+.social-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (min-width: 900px) {
+  .social-icons {
+    display: flex;
+  }
+}
+
+/* =====================
    HOW IT WORKS PAGE
    ===================== */
 
@@ -469,6 +623,7 @@ a {
 .page-hero {
   padding: 5.5rem 0 4.5rem;
   text-align: center;
+  border-bottom: 1px solid var(--border);
 }
 
 .page-hero-container {
@@ -478,30 +633,28 @@ a {
 }
 
 .page-hero h1 {
-  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
-  font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -0.04em;
-  color: var(--navy);
+  font-size: clamp(2rem, 5.5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: #132638;
   margin-bottom: 1.25rem;
 }
 
 .page-hero p {
-  font-size: clamp(1rem, 1.8vw, 1.125rem);
-  color: var(--muted);
-  max-width: 420px;
-  line-height: 1.7;
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  font-weight: 500;
+  color: #000000;
+  line-height: 1.2;
 }
 
 /* Step sections — alternating layout */
 .step-section {
-  padding: 5.5rem 0;
+  padding: 3rem 0;
 }
 
 .step-section--alt {
-  background: var(--light-bg);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  background: #f6f6f6;
 }
 
 .step-inner {
@@ -520,30 +673,33 @@ a {
 
 .step-tag {
   display: block;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  color: var(--orange);
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #000000;
+  margin-bottom: 0.75rem;
 }
 
 .step-h {
-  font-size: clamp(1.6rem, 2.8vw, 2.25rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.12;
-  color: var(--navy);
-  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 57px;
+  color: #f35a05;
+  margin-bottom: 0.5rem;
 }
 
 .step-body {
-  font-size: 1rem;
-  color: var(--muted);
-  line-height: 1.8;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #265039;
+  line-height: 20px;
+  letter-spacing: 0;
 }
 
-/* Step video placeholder */
+/* Step video */
 .step-video {
   position: relative;
   width: 100%;
@@ -552,6 +708,18 @@ a {
   background: var(--navy);
   aspect-ratio: 16 / 9;
   box-shadow: 0 16px 48px rgba(26, 43, 60, 0.14);
+}
+
+.step-video img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.step-video .play-icon {
+  background: rgba(26, 43, 60, 0.55);
+  border: 2px solid rgba(255, 255, 255, 0.65);
 }
 
 /* Page CTA — single button */
@@ -568,17 +736,20 @@ a {
 }
 
 .page-cta h2 {
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  font-weight: 800;
-  letter-spacing: -0.035em;
+  font-size: clamp(2rem, 4vw, 3.125rem);
+  font-weight: 700;
+  letter-spacing: 0;
   line-height: 1.1;
-  color: var(--navy);
+  color: #000000;
   margin-bottom: 1rem;
 }
 
 .page-cta p {
-  font-size: clamp(1rem, 1.8vw, 1.125rem);
-  color: var(--muted);
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.1;
+  color: #000000;
   margin-bottom: 2.25rem;
 }
 
@@ -586,6 +757,24 @@ a {
 @media (min-width: 760px) {
   .page-hero {
     padding: 8rem 0 6.5rem;
+  }
+
+  .page-hero h1 {
+    font-size: 4rem;       /* exactly 64px */
+    line-height: 77px;     /* exactly per spec */
+  }
+
+  .page-hero p {
+    font-size: 2rem;       /* exactly 32px */
+    white-space: nowrap;
+  }
+
+  .page-cta h2 {
+    font-size: 3.125rem;   /* exactly 50px */
+  }
+
+  .page-cta p {
+    font-size: 2rem;       /* exactly 32px */
   }
 
   .step-inner {

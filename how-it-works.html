@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How It Works | ExhibitPro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -20,8 +23,18 @@
         <a href="#">Contact</a>
       </nav>
       <div class="header-actions">
-        <a class="btn btn-ghost" href="#">See how it works</a>
         <a class="btn btn-primary" href="index.html#try">Try ExhibitPro</a>
+        <div class="social-icons">
+          <a href="#" class="social-icon" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="3"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </header>
@@ -31,7 +44,7 @@
     <section class="page-hero">
       <div class="container page-hero-container">
         <span class="eyebrow">How It Works</span>
-        <h1>From Document to Print-Ready in Minutes.</h1>
+        <h1>From Document to<br>Print-Ready in Minutes.</h1>
         <p>No templates. No manual setup. No reprints.</p>
       </div>
     </section>
@@ -46,13 +59,7 @@
         </div>
         <div class="step-media">
           <div class="step-video">
-            <button class="video-btn" aria-label="Play Select Your Files walkthrough">
-              <span class="play-icon">
-                <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <polygon points="1,1 19,11 1,21" fill="white" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
-                </svg>
-              </span>
-            </button>
+            <img src="images/Sellect your files thumbnail 1.png" alt="Watch how to select your files" />
           </div>
         </div>
       </div>
@@ -68,13 +75,7 @@
         </div>
         <div class="step-media">
           <div class="step-video">
-            <button class="video-btn" aria-label="Play Extract Automatically walkthrough">
-              <span class="play-icon">
-                <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <polygon points="1,1 19,11 1,21" fill="white" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
-                </svg>
-              </span>
-            </button>
+            <img src="images/Extract automatically thumbnail.png" alt="Watch how to extract automatically" />
           </div>
         </div>
       </div>
@@ -90,13 +91,7 @@
         </div>
         <div class="step-media">
           <div class="step-video">
-            <button class="video-btn" aria-label="Play Review and Customize walkthrough">
-              <span class="play-icon">
-                <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <polygon points="1,1 19,11 1,21" fill="white" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
-                </svg>
-              </span>
-            </button>
+            <img src="images/How topreview thumbnail 1.png" alt="Watch how to review and customize" />
           </div>
         </div>
       </div>
@@ -112,13 +107,7 @@
         </div>
         <div class="step-media">
           <div class="step-video">
-            <button class="video-btn" aria-label="Play Print Your Labels and Tabs walkthrough">
-              <span class="play-icon">
-                <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <polygon points="1,1 19,11 1,21" fill="white" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
-                </svg>
-              </span>
-            </button>
+            <img src="images/How to generate and print thumbnail 1.png" alt="Watch how to print your labels and tabs" />
           </div>
         </div>
       </div>
@@ -136,10 +125,11 @@
 
   <footer class="site-footer" id="footer">
     <div class="container footer-inner">
-      <p class="footer-brand">ExhibitPro</p>
+      <p class="footer-brand">Exhibit<span style="color: var(--orange);">Pro</span></p>
       <p class="footer-tagline">Select. Format. Print.</p>
       <nav class="footer-links" aria-label="Footer links">
         <a href="#">Privacy Policy</a>
+        <span class="footer-sep">|</span>
         <a href="#">Terms of Service</a>
       </nav>
       <p class="footer-copy">&#169; 2026 ExhibitPro. All rights reserved.</p>

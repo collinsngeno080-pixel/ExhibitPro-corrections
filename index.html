@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ExhibitPro | Court Exhibit Labels and Tabs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -20,8 +23,18 @@
         <a href="#footer">Contact</a>
       </nav>
       <div class="header-actions">
-        <a class="btn btn-ghost" href="how-it-works.html">See how it works</a>
         <a class="btn btn-primary" href="#try">Try ExhibitPro</a>
+        <div class="social-icons">
+          <a href="#" class="social-icon" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="3"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </header>
@@ -31,25 +44,21 @@
     <section class="hero" id="try">
       <div class="container hero-container">
         <span class="eyebrow">Court Exhibit Labels and Tabs for Litigation Teams</span>
-        <h1>Your Exhibit Labels and Tabs Are Already in the Document.</h1>
+        <h1>Your Exhibit <span style="color: var(--orange);">Labels</span> and <span style="color: var(--orange);">Tabs</span><br>Are Already in the Document.</h1>
         <p class="hero-sub">ExhibitPro finds them, formats them, and gets them print-ready in minutes. No manual entry.</p>
         <div class="btn-group">
           <a class="btn btn-primary btn-lg" href="#try">Try ExhibitPro</a>
-          <a class="btn btn-outline btn-lg" href="how-it-works.html">See how it works</a>
+          <a class="btn btn-outline btn-lg" href="how-it-works.html">See how it works &#8594;</a>
         </div>
-        <p class="trust-line">Built for law firms. $29/month. No contract. Cancel anytime.</p>
+        <p class="trust-line">Built for law firms. Plans from <span style="color: var(--orange);">$29/month</span>. No contract. Cancel anytime.</p>
       </div>
     </section>
 
-    <section class="credibility-strip">
-      <div class="container">
-        <p>Trusted by trial teams across PA, GA, and OH.</p>
-      </div>
-    </section>
+    <hr class="section-sep" />
 
     <section class="video-section" id="video">
       <div class="container">
-        <h2>See ExhibitPro in a Real Law Firm Workflow</h2>
+        <h2>See Exhibit<span style="color: var(--orange);">Pro</span> in a Real Law Firm Workflow</h2>
         <div class="video-wrap">
           <button class="video-btn" aria-label="Play demo video">
             <span class="play-icon">
@@ -66,29 +75,86 @@
       <div class="container">
         <h2>Three steps. That&#8217;s it.</h2>
         <div class="steps-grid">
-          <div class="step">
-            <p class="step-name">Select.</p>
-            <p class="step-desc">Drop in your PDF or DOCX documents.</p>
+
+          <div class="step-flip-card" role="button" tabindex="0" aria-label="Select — tap to learn more">
+            <div class="step-card-inner">
+              <div class="step-card-front">
+                <span class="step-card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="17 8 12 3 7 8"/>
+                    <line x1="12" y1="3" x2="12" y2="15"/>
+                  </svg>
+                </span>
+                <p class="step-card-label">Select</p>
+              </div>
+              <div class="step-card-back">
+                <div class="step-card-back-body">
+                  <p class="step-card-back-label">Select</p>
+                  <p class="step-card-back-desc">Drop in your PDF or DOCX documents.</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="step">
-            <p class="step-name">Format.</p>
-            <p class="step-desc">ExhibitPro finds your exhibit identifiers and headings automatically.</p>
+
+          <div class="step-flip-card" role="button" tabindex="0" aria-label="Format — tap to learn more">
+            <div class="step-card-inner">
+              <div class="step-card-front">
+                <span class="step-card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                    <polyline points="10 9 9 9 8 9"/>
+                  </svg>
+                </span>
+                <p class="step-card-label">Format</p>
+              </div>
+              <div class="step-card-back">
+                <div class="step-card-back-body">
+                  <p class="step-card-back-label">Format</p>
+                  <p class="step-card-back-desc">ExhibitPro finds your exhibit identifiers and headings automatically.</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="step">
-            <p class="step-name">Print.</p>
-            <p class="step-desc">Preview, confirm alignment, and send to your preferred exhibit base sheet.</p>
+
+          <div class="step-flip-card" role="button" tabindex="0" aria-label="Print — tap to learn more">
+            <div class="step-card-inner">
+              <div class="step-card-front">
+                <span class="step-card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="6 9 6 2 18 2 18 9"/>
+                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                    <rect x="6" y="14" width="12" height="8"/>
+                  </svg>
+                </span>
+                <p class="step-card-label">Print.</p>
+              </div>
+              <div class="step-card-back">
+                <div class="step-card-back-body">
+                  <p class="step-card-back-label">Print.</p>
+                  <p class="step-card-back-desc">Preview, confirm alignment, and send to your preferred exhibit base sheet.</p>
+                </div>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
 
     <section class="closing-cta" id="closing-cta">
       <div class="container">
-        <h2>Select. Format. Print.<br>ExhibitPro Just Works.</h2>
+        <h2>
+          <span class="cta-line1">Select. Format. Print.</span>
+          <span class="cta-line2">Exhibit<span style="color: var(--orange);">Pro</span> Just Works.</span>
+        </h2>
         <p class="hero-sub">$29/month. No templates. No manual entry. No reprints.</p>
         <div class="btn-group">
           <a class="btn btn-primary btn-lg" href="#try">Launch ExhibitPro</a>
-          <a class="btn btn-outline btn-lg" href="#footer">See Pricing</a>
+          <a class="btn btn-outline btn-lg" href="#footer">See Pricing &#8594;</a>
         </div>
       </div>
     </section>
@@ -97,15 +163,30 @@
 
   <footer class="site-footer" id="footer">
     <div class="container footer-inner">
-      <p class="footer-brand">ExhibitPro</p>
+      <p class="footer-brand">Exhibit<span style="color: var(--orange);">Pro</span></p>
       <p class="footer-tagline">Select. Format. Print.</p>
       <nav class="footer-links" aria-label="Footer links">
         <a href="#">Privacy Policy</a>
+        <span class="footer-sep">|</span>
         <a href="#">Terms of Service</a>
       </nav>
       <p class="footer-copy">&#169; 2026 ExhibitPro. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    document.querySelectorAll('.step-flip-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        this.classList.toggle('is-flipped');
+      });
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.classList.toggle('is-flipped');
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
