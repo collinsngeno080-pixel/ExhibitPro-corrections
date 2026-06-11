@@ -828,7 +828,8 @@ h1 br, h2 br {
 
 .bridging-line p {
   font-size: 0.9rem;
-  color: var(--muted);
+  font-weight: 700;
+  color: var(--navy);
   max-width: 54ch;
   margin: 0 auto;
   line-height: 1.7;
