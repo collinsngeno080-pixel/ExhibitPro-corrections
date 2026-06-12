@@ -493,6 +493,35 @@ h1 br, h2 br {
   flex-direction: column;
   align-items: center;
   gap: 0.75rem;
+  position: relative;
+}
+
+.footer-inner > a {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.footer-logo {
+  height: 64px;
+  width: auto;
+  display: block;
+}
+
+.footer-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .footer-inner > a {
+    position: static;
+    transform: none;
+  }
 }
 
 .footer-brand {
